@@ -1,0 +1,2 @@
+<!--pages/story/story.wxml-->
+<text>{{story_url}}</text>

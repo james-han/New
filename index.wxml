@@ -1,0 +1,24 @@
+<!--index.wxml-->
+
+<block wx:for='{{news_list}}' wx:key='{{item.unique}}'>
+  <view wx:if='{{((item.title == null) &&(item.story_title == null) ? false:true)}}' class='news'>
+    <view class='line_bar'></view>
+    <view animation="{{item.animation}}" scr='{{item.story_url != null ? item.story_url : item.url}}' class='news_item' bindtap='open_url' data-index='{{index}}'>
+      <view class='news_item_resume' data-index='{{index}}'>
+        <view class='news_item_resume_title'>{{item.story_title != null ? item.story_title : item.title}}</view>
+        <view class='news_item_resume_other'>
+          <view>{{item.author}}</view>
+          <view>{{item.date}}</view>
+        </view>
+      </view>
+      <image class='news_item_delete' data-index='{{index}}' src='/images/delete.png' catchtap='deleted'></image>
+    </view>
+  </view>
+</block>
+
+<view wx:if="{{open_show}}" id='open_show'>
+  <view id='open_show_in'>
+    <image animation="{{animation}}" src='/images/icon.jpg'></image>
+    <view>岚腾图文</view>
+  </view>
+</view>
